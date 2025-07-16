@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>The Map</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #vermontMap {
+      height: 600px;
+      width: 90%;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+
+    #resetButton {
+      display: block;
+      margin: 10px auto 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #resetButton:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="home-button">🏠 Home</a>
+    <h1>The Map</h1>
+    <p>Explore the rivers, lakes, and hidden spots we guide on.</p>
+  </header>
+
+  <section>
+    <p style="max-width: 700px; margin: auto; padding: 20px;">
+      Here you can find some favorite fly-fishing locations and seasonal hotspots. Great for planning your trip!
+    </p>
+  </section>
+
+  <button id="resetButton">Recenter Map To Vermont</button>
+  <div id="vermontMap"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const vermontBounds = [
+      [42.7, -73.5],
+      [45.1, -71.2]
+    ];
+
+    const vermontCenter = [44.0, -72.7];
+    const vermontZoom = 8;
+
+    const map = L.map('vermontMap', {
+      maxBounds: vermontBounds,
+      maxBoundsViscosity: 1.0,
+      zoomControl: true
+    }).setView(vermontCenter, vermontZoom);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    document.getElementById('resetButton').addEventListener('click', () => {
+      map.setView(vermontCenter, vermontZoom);
+    });
+
+    // 🎣 Fly-Fishing Regions
+    const regions = [
+      {
+        name: "Brown River Area",
+        bounds: [
+          [44.6, -73.1],
+          [44.8, -72.8]
+        ],
+        color: "#6d4c41",
+        description: "Headwaters and pools along the Brown River in Northwest Vermont."
+      },
+      {
+        name: "Lewis Creek & New Haven River",
+        bounds: [
+          [44.0, -73.3],
+          [44.2, -73.0]
+        ],
+        color: "#2e7d32",
+        description: "Productive water in Lewis Creek and the scenic New Haven River."
+      },
+      {
+        name: "Little River & Mad River Area",
+        bounds: [
+          [44.1, -72.9],
+          [44.5, -72.6]
+        ],
+        color: "#1976d2",
+        description: "Central Vermont gems including the Mad River and Little River."
+      },
+      {
+        name: "Otter Creek & Lower New Haven",
+        bounds: [
+          [43.9, -73.2],
+          [44.05, -72.95]
+        ],
+        color: "#ef6c00",
+        description: "Southwestern Vermont including Otter Creek and New Haven's tailwater."
+      }
+    ];
+
+    regions.forEach(region => {
+      const rectangle = L.rectangle(region.bounds, {
+        color: region.color,
+        weight: 2,
+        fillOpacity: 0.3
+      }).addTo(map);
+
+      rectangle.bindPopup(`<strong>${region.name}</strong><br>${region.description}`);
+
+      rectangle.on("click", () => {
+        map.fitBounds(region.bounds);
+      });
+    });
+  </script>
+</body>
+</html>

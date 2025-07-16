@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Fly Fishing Adventures</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Green Mountain Fly Fishing Tours</h1>
+    <p>Guided fly-fishing tours for all skill levels in the Vermont Green Mountain range.</p>
+  </header>
+
+  <section class="gallery">
+    <h2>Tours in Action</h2>
+    <div class="images">
+        <div class="card">
+          <a href="About the guide.html">
+            <img src="images/spotRainbow.jpg" alt="about the guide">
+            <div class="card-label">About The Guide</div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="Local Hatches.html">
+            <img src="images/flyrod.jpg" alt="Local Hatches">
+            <div class="card-label">Local Hatches</div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="River Maps.html">
+            <img src="images/riverpic.jpg" alt="River Maps">
+            <div class="card-label">River Maps</div>
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <section class="highlights" style="max-width: 800px; margin: 30px auto;">
+    <h2 style="text-align: center;">Types of Fishing Tours</h2>
+    <ul style="font-size: 1.1em; line-height: 1.6;">
+        <li>
+            <h3>2-Hour Fly Casting Class</h3>
+            <p>
+              In this hands-on 2-hour session, I’ll walk you through the proper setup and assembly of a fly rod, then teach you key casting techniques for a variety of water types—whether it’s open river stretches, deep pools, or tight, wooded streams. You’ll also get a simple introduction to aquatic insect identification, so you’ll know what flies to use and when, based on seasonal hatches.
+            </p>
+          </li>
+          <li>
+            <h3>Half-Day Guided Tour</h3>
+            <p>
+              This 3.5-hour tour is available in two time slots: <strong>9:00 AM to 12:30 PM</strong> or <strong>1:00 PM to 4:30 PM</strong>. You’ll fish at one of the river locations shown on the map, where I’ll guide you to the best spots for the day. Included is a set of hand-tied flies, selected to match the river ecosystem, ensuring the most effective fishing experience.
+            </p>
+          </li>
+          <li>
+            <h3>Full-Day Guided Tour</h3>
+            <p>
+              The full-day tour offers flexibility to either focus on a single river or explore multiple rivers in the area, depending on your preference. This allows for a diverse range of fishing experiences, from remote, holdover trout pools to expansive, open river stretches. The tour runs from <strong>9:00 AM to 5:00 PM</strong>, providing ample time to fish throughout the day.
+            </p>
+          </li>
+    </ul>
+  </section>
+  
+  <section class="expectations" style="max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f4f9f4; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center;">What to Expect During Your Tour</h2>
+    <p>Once you submit a request for a fly fishing tour, you’ll receive an email response within a few days to coordinate the details. Together, we’ll choose a meeting point based on one of the river locations —each river’s section can be found on the <strong>Map</strong> for easy reference.</p>
+    
+    <p>Depending on the time of year and water conditions, <strong>waders are strongly recommended</strong> for the best fishing experience. Please note that waders are <strong>not provided</strong>.</p>
+    
+    <p>If you need a fly rod, one can be supplied upon request—just be sure to <strong>include this in your email request</strong> so it can be arranged ahead of time.</p>
+  </section>
+
+  <section class="booking">
+    <h2>Book a Tour</h2>
+    <form id="booking-form" action="https://formspree.io/f/mldbgpre" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" required>
+
+      <label for="package">Choose a Package</label>
+      <select name="package" required>
+        <option value="">--Select--</option>
+        <option value="half-day">2-Hour Casting Class: $200.00</option>
+        <option value="half-day">Half-Day River Tour: $300.00</option>
+        <option value="full-day">Full-Day River Tour: $600.00</option>
+      </select>
+
+      <label for="message">Additional Notes</label>
+      <textarea name="message" rows="4" placeholder="Any special requests?"></textarea>
+
+      <button type="submit">Book Now</button>
+    </form>
+    <p id="form-msg"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

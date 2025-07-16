@@ -1,0 +1,308 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9f4;
+    color: #333;
+  }
+  
+  header {
+    background-image: url('images/backdrop.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center 60%;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+  }
+  
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay for contrast */
+    z-index: 0;
+  }
+  
+  header h1,
+  header p {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gallery {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .gallery .images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .gallery img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .booking {
+    padding: 30px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input, select, textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #007B5E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  button:hover {
+    background-color: #005f46;
+  }
+  .card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .card-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-sizing: border-box;
+  }
+  .timeline-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px 20px;
+    align-items: start;
+  }
+  
+  .month {
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px;
+    background: #e0f7fa;
+    border-radius: 5px;
+    text-align: right;
+  }
+  
+  .event {
+    background: #ffffff;
+    padding: 10px;
+    border-left: 4px solid #00796b;
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .event:hover {
+    background: #e8f5e9;
+  }
+  
+  .event-desc {
+    display: none;
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #444;
+    animation: slideDown 0.3s ease-in-out forwards;
+  }
+  
+  .event:hover .event-desc {
+    display: block;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none; /* hidden by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 260px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .fly-image-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .fly-img {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+  
+  .fly-img:hover {
+    transform: scale(1.8);
+    z-index: 2;
+  }
+
+
+
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 40px 10px;
+      font-size: 0.9em;
+    }
+  
+    .gallery .images {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%;
+      height: auto;
+    }
+  
+    .gallery img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .booking, .highlights, .expectations, .timeline-container {
+      padding: 15px;
+      margin: 20px 10px;
+    }
+  
+    form input,
+    form select,
+    form textarea {
+      font-size: 1em;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 1em;
+      padding: 10px;
+    }
+  
+    #vermontMap {
+      width: 95% !important;
+      height: 400px !important;
+    }
+  
+    .home-button {
+      top: 10px;
+      left: 10px;
+      padding: 6px 10px;
+      font-size: 0.9em;
+    }
+  
+    .fly-image-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .fly-img {
+      width: 100px;
+    }
+  }
+  
